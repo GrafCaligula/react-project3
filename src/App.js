@@ -1,35 +1,13 @@
 import "./App.css";
 import Joke from "./components/Joke";
+import jokeData from "./jokeData.js";
 
 function App() {
-  return (
-    <div>
-      <Joke
-      isPun={false} 
-      setup="Was ist gelb und kann nicht schwimmen?"
-      punchline="Ein Bagger!"
-      />
-      <Joke
-      isPun={false} 
-      setup="Was ist klein, rund und dreieckig?"
-      punchline="Ein kleines rundes Dreieck!"
-      />
-      <Joke
-      isPun={false} 
-      setup="Warum können Piraten keinen Kreisumfang berechnen?"
-      punchline="Na, weil sie Pi-raten!"
-      />
-      <Joke
-      isPun={false} 
-      setup="Was ist süß und guckt durch's Schlüsselloch?"
-      punchline="Eine Spanner-nass!"
-      />
-      <Joke
-      isPun={true} 
-      punchline="One-Line Joke"
-      />
-    </div>
-  );
+  const jokeElements = jokeData.map((joke) => {
+    return <Joke setup={joke.setup} punchline={joke.punchline} />;
+  });
+
+  return <div>{jokeElements}</div>;
 }
 
 export default App;
